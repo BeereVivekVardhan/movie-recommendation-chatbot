@@ -57,9 +57,9 @@ Never sound robotic or like you're reading a script. Just chat naturally.`
           content: message
         }
       ],
-      // --- THIS LINE HAS BEEN UPDATED to a current free model ---
-      model: 'gemma-7b-it',
-      // --------------------------------------------------------
+      // --- UPDATED to a current, powerful model ---
+      model: 'mixtral-8x7b-32768',
+      // ------------------------------------------
       temperature: 0.7,
       max_tokens: 1024,
     });
