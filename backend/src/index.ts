@@ -11,7 +11,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+// --- Your IP address has been added here ---
+app.use(cors({
+  origin: 'http://13.201.125.191:5173'
+}));
+// ------------------------------------------
+
 app.use(express.json());
 
 // Initialize Groq client
@@ -59,12 +64,7 @@ Never sound robotic or like you're reading a script. Just chat naturally.`
       max_tokens: 1024,
     });
 
-    // Add null check to fix TypeScript error
-    const responseContent = completion.choices && 
-                           completion.choices[0] && 
-                           completion.choices[0].message && 
-                           completion.choices[0].message.content || 
-                           "Sorry, I couldn't generate a response. Please try again.";
+    const responseContent = completion.choices[0]?.message?.content || "Sorry, I couldn't generate a response. Please try again.";
     
     res.json({ response: responseContent });
   } catch (error) {
@@ -75,4 +75,4 @@ Never sound robotic or like you're reading a script. Just chat naturally.`
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-}); 
+});
