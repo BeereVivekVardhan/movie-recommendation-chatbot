@@ -11,11 +11,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// --- Your IP address has been added here ---
 app.use(cors({
   origin: 'http://13.201.125.191:5173'
 }));
-// ------------------------------------------
 
 app.use(express.json());
 
@@ -59,7 +57,9 @@ Never sound robotic or like you're reading a script. Just chat naturally.`
           content: message
         }
       ],
+      // --- THIS LINE HAS BEEN UPDATED to a current free model ---
       model: 'gemma-7b-it',
+      // --------------------------------------------------------
       temperature: 0.7,
       max_tokens: 1024,
     });
