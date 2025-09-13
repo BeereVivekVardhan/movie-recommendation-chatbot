@@ -58,7 +58,7 @@ Never sound robotic or like you're reading a script. Just chat naturally.`
         }
       ],
       // --- UPDATED to a current, powerful model ---
-      model: 'mixtral-8x7b-32768',
+      model: 'llama-3.1-8b-instant',
       // ------------------------------------------
       temperature: 0.7,
       max_tokens: 1024,
